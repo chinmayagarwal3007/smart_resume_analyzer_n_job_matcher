@@ -70,6 +70,9 @@ def build_graph():
 #Test
 if __name__ == "__main__":
     app = build_graph()
-    result = app.invoke({"messages": [HumanMessage(content="Delete job from database with Job ID '12345'")]})
+    result = app.invoke({"messages": [HumanMessage(content="Delete Job from database with job id = '12345'")]})
     for msg in result["messages"]:
         print(msg.content)
+
+#Add a job in database with title 'Software Engineer' and description 'Develop software solutions.' and job id '12345'
+#Delete Job from database with job id = '12345'
