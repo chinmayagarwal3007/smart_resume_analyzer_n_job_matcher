@@ -1,4 +1,3 @@
-from langchain.chat_models import ChatOpenAI
 from langchain.tools import tool
 from gemini_model import llm
 from langchain.prompts import PromptTemplate
