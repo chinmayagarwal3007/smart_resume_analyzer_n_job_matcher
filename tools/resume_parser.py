@@ -1,9 +1,12 @@
 import PyPDF2
 from langchain.tools import tool
+from resume_parser import resumeparse
+
 
 @tool
 def parse_resume(file_path: str) -> str:
     """Parse resume from PDF"""
-    reader = PyPDF2.PdfReader(file_path)
-    text = "\n".join([page.extract_text() for page in reader.pages if page.extract_text()])
-    return text
+    from resume_parser import resumeparse
+    data = resumeparse.read_file(file_path)
+    print(data)
+    return data

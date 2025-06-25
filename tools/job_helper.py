@@ -1,5 +1,5 @@
 from langchain.tools import tool
-from typing import TypedDict
+from typing import TypedDict, List
 from vector_db.add_job import add_job_to_index
 from vector_db.delete_job import delete_job_by_id
 from vector_db.search_job import search_jobs_faiss
@@ -8,7 +8,7 @@ class Job(TypedDict):
    title: str
    description: str
    job_id: str 
-   skills: list[str]
+   skills: List[str]
    location: str
 
 
