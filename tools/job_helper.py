@@ -8,13 +8,16 @@ class Job(TypedDict):
    title: str
    description: str
    job_id: str 
+   skills: list[str]
+   location: str
+
 
 
 @tool
 def add_job_to_vd(job: Job):
     """Add job given by the user to vector faiss db"""
     try:
-        add_job_to_index(job["title"], job["description"], job["job_id"])
+        add_job_to_index(job["title"], job["description"], job["job_id"], job["skills"], job["location"])
         return "Job has been successfully added to the Database"
     except Exception as e:
         return f"Failed to add job into the database due to error: {e}"

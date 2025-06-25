@@ -5,13 +5,15 @@ from sentence_transformers import SentenceTransformer
 # Load model once
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
-def add_job_to_index(title: str, description: str, job_id: str):
+def add_job_to_index(title: str, description: str, job_id: str, skills: list[str], location: str = "Remote"):
     
    
      # Create document and embed it
     document = f"""Title: {title}
 Description: {description}
-Job ID: {job_id}"""
+Job ID: {job_id}
+Skills: {', '.join(skills)}
+Location: {location}"""
     
     embedding = model.encode([document], convert_to_numpy=True)
 
