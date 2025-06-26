@@ -1,5 +1,6 @@
 from tools.interview_helper import explain_candidate_fit, suggest_interview_questions
 from tools.job_helper import add_job_to_vd, del_job_from_vd, search_job_from_vd
+from tools.extract_info import extract_info_from_resume_text, extract_info_from_job_text
 from tools.pdf_parser import parse_pdf
 from langgraph.graph import StateGraph, END
 from langchain_core.messages import HumanMessage, ToolMessage, AIMessage
@@ -14,7 +15,7 @@ class AgentState(BaseModel):
     messages: List[BaseMessage]
 
 # Step 1: Define tools
-tools = [explain_candidate_fit, suggest_interview_questions,add_job_to_vd, del_job_from_vd, search_job_from_vd, parse_resume]
+tools = [explain_candidate_fit, suggest_interview_questions,add_job_to_vd, del_job_from_vd, search_job_from_vd, parse_pdf, extract_info_from_resume_text, extract_info_from_job_text]
 
 # Step 2: Setup Gemini model with tools
 llm = llm.bind_tools(tools)
