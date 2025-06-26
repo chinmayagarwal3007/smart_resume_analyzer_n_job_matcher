@@ -10,6 +10,7 @@ class Job(TypedDict):
    job_id: str 
    skills: List[str]
    location: str
+   work_experience: str
 
 
 
