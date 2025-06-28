@@ -66,6 +66,6 @@ def build_graph():
 #Test
 if __name__ == "__main__":
     app = build_graph()
-    result = app.invoke({"messages": [HumanMessage(content="add a job with title: Software Engineer, description: Develop software, job_id: 12345, skills: Python, location: Remote, work_experience: 5 years")]})
+    result = app.invoke({"messages": [HumanMessage(content="add a job with title: 'Software Engineer', description: 'Develop software', job_id: '12345', skills: ['Python'], location: 'Remote', work_experience: '5 years'")]})
     for msg in result["messages"]:
         print(msg.content)
