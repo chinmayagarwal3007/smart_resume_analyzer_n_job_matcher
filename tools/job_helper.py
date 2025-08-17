@@ -27,8 +27,7 @@ def add_job_to_vd(job: Job):
 def del_job_from_vd(job_id:str):
     """Delete job given by the user from vector faiss db"""
     try:
-        delete_job_by_id(job_id)
-        return "Job has been successfully deleted from the Database"
+        return delete_job_by_id(job_id)
     except Exception as e:
         return f"Failed to delete job from the database due to error: {e}"
     

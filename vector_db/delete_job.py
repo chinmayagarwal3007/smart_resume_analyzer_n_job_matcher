@@ -15,8 +15,8 @@ def delete_job_by_id(job_id: str):
     index_to_remove = next((i for i, job in enumerate(metadata) if job['job_id'] == job_id), None)
     print(f"Index to remove: {index_to_remove}")
     if index_to_remove is None:
-        print(f"❌ Job ID '{job_id}' not found.")
-        return
+        # print(f"❌ Job ID '{job_id}' not found.")
+        return (f"Job ID '{job_id}' not found.")
 
     # Remove the entry
     removed_job = metadata.pop(index_to_remove)
@@ -43,4 +43,5 @@ Job ID: {job['job_id']}"""
         with open("faiss_metadata.pkl", "wb") as f:
             pickle.dump([], f)
 
-    print(f"✅ Deleted job '{removed_job['job_id']}' and updated index.")
+    # print(f"✅ Deleted job '{removed_job['job_id']}' and updated index.")
+    return(f"Deleted job '{removed_job['job_id']}' and updated index.")
